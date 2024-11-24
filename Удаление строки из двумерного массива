@@ -2,32 +2,33 @@
 #include <cstdlib>
 using namespace std;
 // функция создаёт и заполняет двумерный массив 
-int ** creat(int &n, int &m)
+int ** creat(int &n, int &m) //создание двумерного массива
 {
     cout << "n = ";
-    cin >> n;
+    cin >> n; // ввод количества строк
     cout << "m = ";
-    cin >> m;
-    int **mas = new int *[n];
+    cin >> m; // ввод количества элементов в строке
+    int **mas = new int *[n]; // выделение памяти для n количества строк
     for (int i = 0; i < n; ++i)
-    mas[i] = new int [m];
-    for (int i = 0; i < n; ++i)
+    mas[i] = new int [m]; // выделение памяти для m количества элементов для каждой строки
+    
+    for (int i = 0; i < n; ++i) // заполнение двумерного массива
     for (int j = 0; j < m; ++j)
     {
         cout << "mas[" << i << "][" << j << "] = ";
         cin >> mas[i][j];
     }
-    return mas;
+    return mas; // возвращение массива
 }
-// функция выводит двумерную матрицу на экран в виде таблицы
-void print (int **mas, int n, int m)
+
+void print (int **mas, int n, int m) // функция выводит двумерную матрицу на экран в виде таблицы
 {
     for (int i = 0; i < n; i++, cout << endl)
     for (int j = 0; j < m; j++)
     cout << mas[i][j] << "\t";
 }
-// функция освобождает память, выделенную под массив
-void deleteMas(int **mas, int n)
+
+void deleteMas(int **mas, int n) // функция освобождает память, выделенную под массив
 {
     for (int i = 0;i<n; i++)
     delete [] mas[i];
@@ -42,7 +43,7 @@ int main()
     cin >> k; // вводим номер строки для удаления
     /* Если номер строки отрицательный или больше номера последнего элемента, то выводим сообщение об ошибке */
     if (k < 0 || k > n-1)
-    cout << "errror";
+    cout << "error";
     else
     {
         // освобождаем память, выделенную для k-й строки массива
@@ -56,4 +57,3 @@ int main()
     }
     deleteMas(a, n); // освобождаем память
     return 0;
-}
