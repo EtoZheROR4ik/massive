@@ -1,9 +1,9 @@
 #include <iostream>
 #include <cstdlib>
 using namespace std;
-int main()
+int main() 
 {
-    int n;
+    int n; 
     cout << "n = ";
     cin>>n; // ввод размерности массива
     int *a = new int [n]; // создание массива
